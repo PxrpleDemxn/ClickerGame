@@ -1,4 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1703366040
+::res://::1703508601
 icon.svg::CompressedTexture2D::6342225014204938307::1703365308::1703365313::1::::<><>::
 README.md::TextFile::-1::1703365354::0::1::::<><>::
+::res://Assets/::1703461373
+::res://Scripts/::1703501998
+::res://Scripts/Core/::1703501629
+GameManager.cs::CSharpScript::-1::1703503623::0::1::::<>Node<>::
+::res://Scripts/IServices/::1703504576
+IUpgradeService.cs::CSharpScript::-1::1703504576::0::1::::<><>::
+::res://Scripts/Models/::1703501777
+Upgrade.cs::CSharpScript::-1::1703502196::0::1::::<><>::
+::res://Scripts/Services/::1703504584
+UpgradeService.cs::CSharpScript::-1::1703505040::0::1::::<>Node<>::
+::res://Scripts/Upgrades/::1703501238
