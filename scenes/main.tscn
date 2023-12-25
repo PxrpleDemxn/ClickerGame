@@ -1,0 +1,385 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgny5lpmn867k"]
+
+[ext_resource type="Texture2D" uid="uid://c6hg1n7033jgj" path="res://assets/BG/parallax-space-backgound.png" id="1_jserl"]
+[ext_resource type="Texture2D" uid="uid://cpjxwci08hn5i" path="res://assets/UI/Button01.png" id="1_k2hgj"]
+[ext_resource type="Texture2D" uid="uid://bklxgk2i3jmno" path="res://assets/BG/parallax-space-far-planets.png" id="2_3y6s4"]
+[ext_resource type="Texture2D" uid="uid://dqwum52s8chgw" path="res://assets/BG/parallax-space-stars.png" id="3_ifk0b"]
+[ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="5_xn3fw"]
+[ext_resource type="Texture2D" uid="uid://5fnobvxiq5kx" path="res://assets/UI/Button15.png" id="6_f6816"]
+[ext_resource type="Texture2D" uid="uid://nmdpl2scvy04" path="res://assets/UI/Button07.png" id="7_dr4ef"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(575.5, 324.5)
+scale = Vector2(4.26103, 4.10625)
+texture = ExtResource("1_jserl")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(691, 544)
+scale = Vector2(3.40625, 3.40625)
+texture = ExtResource("2_3y6s4")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(577.1, 329)
+scale = Vector2(4.2875, 4.2875)
+texture = ExtResource("3_ifk0b")
+
+[node name="bg" type="PanelContainer" parent="."]
+offset_left = 658.0
+offset_top = 323.0
+offset_right = 658.0
+offset_bottom = 323.0
+
+[node name="bg" type="Sprite2D" parent="bg"]
+position = Vector2(-83.3517, -3)
+scale = Vector2(1.30434, 1.11278)
+texture = ExtResource("5_xn3fw")
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 64.0
+offset_top = 60.0
+offset_right = 1093.0
+offset_bottom = 584.0
+
+[node name="menu" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer/menu"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("1_k2hgj")
+
+[node name="btn_1" type="Label" parent="GridContainer/menu/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="GridContainer/menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_k2hgj")
+
+[node name="btn_2" type="Label" parent="GridContainer/menu/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="GridContainer/menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_k2hgj")
+
+[node name="btn_3" type="Label" parent="GridContainer/menu/TextureButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton4" type="TextureButton" parent="GridContainer/menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_k2hgj")
+
+[node name="btn_4" type="Label" parent="GridContainer/menu/TextureButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton5" type="TextureButton" parent="GridContainer/menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_k2hgj")
+
+[node name="btn_5" type="Label" parent="GridContainer/menu/TextureButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton6" type="TextureButton" parent="GridContainer/menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_k2hgj")
+
+[node name="btn_6" type="Label" parent="GridContainer/menu/TextureButton6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GridContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton4" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton5" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton6" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton7" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton8" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton9" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton10" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton11" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton12" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture_normal = ExtResource("6_f6816")
+stretch_mode = 0
+
+[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_dr4ef")
+stretch_mode = 5
