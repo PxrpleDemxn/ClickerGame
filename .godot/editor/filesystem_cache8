@@ -1,15 +1,70 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1703508601
-icon.svg::CompressedTexture2D::6342225014204938307::1703365308::1703365313::1::::<><>::
-README.md::TextFile::-1::1703365354::0::1::::<><>::
-::res://Assets/::1703461373
-::res://Scripts/::1703501998
-::res://Scripts/Core/::1703501629
-GameManager.cs::CSharpScript::-1::1703503623::0::1::::<>Node<>::
-::res://Scripts/IServices/::1703504576
-IUpgradeService.cs::CSharpScript::-1::1703504576::0::1::::<><>::
-::res://Scripts/Models/::1703501777
-Upgrade.cs::CSharpScript::-1::1703502196::0::1::::<><>::
-::res://Scripts/Services/::1703504584
-UpgradeService.cs::CSharpScript::-1::1703505040::0::1::::<>Node<>::
-::res://Scripts/Upgrades/::1703501238
+::res://::1703542324
+icon.svg::CompressedTexture2D::6342225014204938307::1703540578::1703540578::1::::<><>::
+README.md::TextFile::-1::1703540578::0::1::::<><>::
+::res://assets/::1703546417
+::res://assets/BG/::1703540874
+parallax-space-backgound.png::CompressedTexture2D::6963557630453457849::1703540584::1703540874::1::::<><>::
+parallax-space-big-planet.png::CompressedTexture2D::2859279011490574636::1703540584::1703540874::1::::<><>::
+parallax-space-far-planets.png::CompressedTexture2D::3112425048309630016::1703540584::1703540874::1::::<><>::
+parallax-space-ring-planet.png::CompressedTexture2D::490764084310531200::1703540584::1703540874::1::::<><>::
+parallax-space-stars.png::CompressedTexture2D::8328937247531571614::1703540584::1703540874::1::::<><>::
+::res://assets/Enemies/::1703546417
+10x16 Cells.txt::TextFile::-1::1701786988::0::1::::<><>::
+enemies x1.png::CompressedTexture2D::1513574319202811616::1701786914::1703546424::1::::<><>::
+enemies x2.png::CompressedTexture2D::7564784943885981046::1701786916::1703546424::1::::<><>::
+enemies x3.png::CompressedTexture2D::7686819740501731485::1701786920::1703546424::1::::<><>::
+::res://assets/Enemies/No Outlines/::1703546417
+enemies x1.png::CompressedTexture2D::227155055408766411::1701787040::1703546424::1::::<><>::
+enemies x2.png::CompressedTexture2D::7414501191108603710::1701787038::1703546424::1::::<><>::
+enemies x3.png::CompressedTexture2D::8629707419943217820::1701787032::1703546424::1::::<><>::
+::res://assets/Themes/::1703544266
+scifi_theme.tres::Theme::274332295438875073::1703544266::0::1::::<><>::uid://ca7l5mc6r3014::::res://assets/UI/Button02.png<>uid://cpjxwci08hn5i::::res://assets/UI/Button01.png
+::res://assets/UI/::1703540874
+Button01.png::CompressedTexture2D::5845689318628173728::1703540584::1703540874::1::::<><>::
+Button02.png::CompressedTexture2D::4839623551055849669::1703540584::1703540874::1::::<><>::
+Button03.png::CompressedTexture2D::22845974320991247::1703540584::1703540874::1::::<><>::
+Button04.png::CompressedTexture2D::8363800117152737969::1703540584::1703540874::1::::<><>::
+Button05.png::CompressedTexture2D::5272167153886422276::1703540584::1703540874::1::::<><>::
+Button06.png::CompressedTexture2D::8412064072150519669::1703540584::1703540874::1::::<><>::
+Button07.png::CompressedTexture2D::937437058517946263::1703540584::1703540874::1::::<><>::
+Button08.png::CompressedTexture2D::6277907628994657386::1703540584::1703540874::1::::<><>::
+Button09.png::CompressedTexture2D::5791060086021567018::1703540584::1703540874::1::::<><>::
+Button10.png::CompressedTexture2D::4076742796373925365::1703540584::1703540874::1::::<><>::
+Button11.png::CompressedTexture2D::4682307240244096152::1703540584::1703540874::1::::<><>::
+Button12.png::CompressedTexture2D::7692672563562657119::1703540584::1703540874::1::::<><>::
+Button13.png::CompressedTexture2D::7005234163263539485::1703540584::1703540874::1::::<><>::
+Button14.png::CompressedTexture2D::6322827855421350341::1703540584::1703540874::1::::<><>::
+Button15.png::CompressedTexture2D::2116801605952515203::1703540584::1703540874::1::::<><>::
+Button16.png::CompressedTexture2D::6388701880017253608::1703540584::1703540874::1::::<><>::
+Grid.png::CompressedTexture2D::4737944367803467303::1703540584::1703540874::1::::<><>::
+MainPanel01.png::CompressedTexture2D::6948485857683598473::1703540584::1703540874::1::::<><>::
+MainPanel02.png::CompressedTexture2D::3485544492012361362::1703540584::1703540874::1::::<><>::
+MainPanel03.png::CompressedTexture2D::3687787115253787298::1703540584::1703540874::1::::<><>::
+SelectPanel01.png::CompressedTexture2D::8497691873971691811::1703540584::1703540874::1::::<><>::
+SelectPanel02.png::CompressedTexture2D::2504186999538068289::1703540584::1703540874::1::::<><>::
+SelectPanel03.png::CompressedTexture2D::1411512292956437331::1703540584::1703540874::1::::<><>::
+Slider01.png::CompressedTexture2D::9096230450210690925::1703540584::1703540874::1::::<><>::
+Slider02.png::CompressedTexture2D::8244872037949455148::1703540584::1703540874::1::::<><>::
+Switch01.png::CompressedTexture2D::2177233298529206001::1703540584::1703540874::1::::<><>::
+Switch02.png::CompressedTexture2D::6316866897707131840::1703540584::1703540874::1::::<><>::
+Switch03.png::CompressedTexture2D::8733352167977860952::1703540584::1703540874::1::::<><>::
+Switch04.png::CompressedTexture2D::2146886615936249::1703540584::1703540874::1::::<><>::
+Switch05.png::CompressedTexture2D::5977499974040437159::1703540584::1703540874::1::::<><>::
+Switch06.png::CompressedTexture2D::384781318174726561::1703540584::1703540874::1::::<><>::
+TitlePanel01.png::CompressedTexture2D::3651155011521497228::1703540584::1703540874::1::::<><>::
+TitlePanel02.png::CompressedTexture2D::4906797062499688149::1703540584::1703540874::1::::<><>::
+::res://Scenes/::1703540584
+main.tscn::PackedScene::7608743406846665822::1703540584::0::1::::<><>::uid://c6hg1n7033jgj::::res://assets/BG/parallax-space-backgound.png<>uid://cpjxwci08hn5i::::res://assets/UI/Button01.png<>uid://bklxgk2i3jmno::::res://assets/BG/parallax-space-far-planets.png<>uid://dqwum52s8chgw::::res://assets/BG/parallax-space-stars.png<>uid://c585sug7hbl0t::::res://assets/UI/MainPanel01.png<>uid://5fnobvxiq5kx::::res://assets/UI/Button15.png<>uid://nmdpl2scvy04::::res://assets/UI/Button07.png
+test.tscn::PackedScene::2393947724264881687::1703540578::0::1::::<><>::res://Scripts/Core/GameManager.cs
+::res://Scripts/::1703540578
+::res://Scripts/Core/::1703540578
+GameManager.cs::CSharpScript::-1::1703540578::0::1::::<><>::
+::res://Scripts/IServices/::1703540578
+ISaveService.cs::CSharpScript::-1::1703540578::0::1::::<><>::
+IUpgradeService.cs::CSharpScript::-1::1703540578::0::1::::<><>::
+::res://Scripts/Models/::1703540578
+Upgrade.cs::CSharpScript::-1::1703540578::0::1::::<><>::
+::res://Scripts/Services/::1703540578
+SaveService.cs::CSharpScript::-1::1703540578::0::1::::<><>::
+UpgradeService.cs::CSharpScript::-1::1703540578::0::1::::<><>::

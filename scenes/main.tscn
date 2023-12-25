@@ -1,12 +1,145 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgny5lpmn867k"]
+[gd_scene load_steps=30 format=3 uid="uid://dgny5lpmn867k"]
 
 [ext_resource type="Texture2D" uid="uid://c6hg1n7033jgj" path="res://assets/BG/parallax-space-backgound.png" id="1_jserl"]
 [ext_resource type="Texture2D" uid="uid://cpjxwci08hn5i" path="res://assets/UI/Button01.png" id="1_k2hgj"]
 [ext_resource type="Texture2D" uid="uid://bklxgk2i3jmno" path="res://assets/BG/parallax-space-far-planets.png" id="2_3y6s4"]
 [ext_resource type="Texture2D" uid="uid://dqwum52s8chgw" path="res://assets/BG/parallax-space-stars.png" id="3_ifk0b"]
 [ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="5_xn3fw"]
-[ext_resource type="Texture2D" uid="uid://5fnobvxiq5kx" path="res://assets/UI/Button15.png" id="6_f6816"]
-[ext_resource type="Texture2D" uid="uid://nmdpl2scvy04" path="res://assets/UI/Button07.png" id="7_dr4ef"]
+[ext_resource type="Theme" uid="uid://d55hia5jtqij" path="res://assets/Themes/scifi_theme.tres" id="6_e0lay"]
+[ext_resource type="Texture2D" uid="uid://cxay8sp4p0wwm" path="res://assets/UI/Button16.png" id="7_3u0l0"]
+[ext_resource type="Texture2D" uid="uid://ca7l5mc6r3014" path="res://assets/UI/Button02.png" id="8_vujmc"]
+[ext_resource type="Texture2D" uid="uid://corh6cbqd0nfu" path="res://assets/UI/Button09.png" id="9_6ivdl"]
+[ext_resource type="Texture2D" uid="uid://chd428dod2ruq" path="res://assets/UI/Button05.png" id="10_yaof6"]
+[ext_resource type="Texture2D" uid="uid://bssnkyeuhin3g" path="res://assets/UI/MainPanel03.png" id="11_k45qv"]
+[ext_resource type="Texture2D" uid="uid://dhrs2etir2i0d" path="res://assets/Enemies/enemies x3.png" id="12_0kxwf"]
+[ext_resource type="Texture2D" uid="uid://d2ujt7bljkg34" path="res://assets/UI/Slider01.png" id="13_itn20"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffhgh"]
+texture = ExtResource("5_xn3fw")
+texture_margin_left = 80.0
+texture_margin_top = 20.0
+texture_margin_right = 80.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="Theme" id="Theme_ohsdd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qw08e"]
+texture = ExtResource("7_3u0l0")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j00w4"]
+texture = ExtResource("8_vujmc")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpkal"]
+texture = ExtResource("9_6ivdl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nrbo"]
+texture = ExtResource("10_yaof6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a0ms7"]
+texture = ExtResource("11_k45qv")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nms5e"]
+atlas = ExtResource("12_0kxwf")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cxvu"]
+atlas = ExtResource("12_0kxwf")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpruf"]
+atlas = ExtResource("12_0kxwf")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k5ti"]
+atlas = ExtResource("12_0kxwf")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcngr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nms5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cxvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpruf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k5ti")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_erk0d"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_jiwr0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3ybl"]
+_data = {
+"RESET": SubResource("Animation_jiwr0"),
+"idle": SubResource("Animation_erk0d")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mssx6"]
+texture = ExtResource("13_itn20")
+texture_margin_left = 100.0
+texture_margin_right = 100.0
 
 [node name="Main" type="Node2D"]
 
@@ -33,17 +166,31 @@ position = Vector2(577.1, 329)
 scale = Vector2(4.2875, 4.2875)
 texture = ExtResource("3_ifk0b")
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -10.0
+offset_top = -3.0
+offset_right = 1154.0
+offset_bottom = 653.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="background-panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ffhgh")
+
+[node name="bg" type="Sprite2D" parent="MarginContainer/background-panel"]
+visible = false
+position = Vector2(574.648, 320)
+scale = Vector2(1.30434, 1.11278)
+texture = ExtResource("5_xn3fw")
+
 [node name="bg" type="PanelContainer" parent="."]
 offset_left = 658.0
 offset_top = 323.0
 offset_right = 658.0
 offset_bottom = 323.0
-
-[node name="bg" type="Sprite2D" parent="bg"]
-position = Vector2(-83.3517, -3)
-scale = Vector2(1.30434, 1.11278)
-texture = ExtResource("5_xn3fw")
-metadata/_edit_lock_ = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_left = 64.0
@@ -68,12 +215,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_e0lay")
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton2" type="TextureButton" parent="GridContainer/menu"]
 layout_mode = 2
+theme = ExtResource("6_e0lay")
 texture_normal = ExtResource("1_k2hgj")
 
 [node name="btn_2" type="Label" parent="GridContainer/menu/TextureButton2"]
@@ -83,12 +232,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_e0lay")
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton3" type="TextureButton" parent="GridContainer/menu"]
 layout_mode = 2
+theme = ExtResource("6_e0lay")
 texture_normal = ExtResource("1_k2hgj")
 
 [node name="btn_3" type="Label" parent="GridContainer/menu/TextureButton3"]
@@ -98,12 +249,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_e0lay")
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton4" type="TextureButton" parent="GridContainer/menu"]
 layout_mode = 2
+theme = ExtResource("6_e0lay")
 texture_normal = ExtResource("1_k2hgj")
 
 [node name="btn_4" type="Label" parent="GridContainer/menu/TextureButton4"]
@@ -113,12 +266,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_e0lay")
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton5" type="TextureButton" parent="GridContainer/menu"]
 layout_mode = 2
+theme = ExtResource("6_e0lay")
 texture_normal = ExtResource("1_k2hgj")
 
 [node name="btn_5" type="Label" parent="GridContainer/menu/TextureButton5"]
@@ -128,12 +283,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_e0lay")
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton6" type="TextureButton" parent="GridContainer/menu"]
 layout_mode = 2
+theme = ExtResource("6_e0lay")
 texture_normal = ExtResource("1_k2hgj")
 
 [node name="btn_6" type="Label" parent="GridContainer/menu/TextureButton6"]
@@ -143,6 +300,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_e0lay")
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -167,219 +325,185 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="TextureButton" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+size_flags_horizontal = 3
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton2" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton2" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton3" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton3" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton4" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton4" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton5" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton5" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton6" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton6" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton7" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton7" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton8" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton8" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton9" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton9" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton9"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton10" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton10" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton10"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton11" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton11" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton11"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton12" type="TextureButton" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
+[node name="TextureButton12" type="Button" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_f6816")
-stretch_mode = 0
-
-[node name="btn" type="Label" parent="GridContainer/HBoxContainer/MarginContainer2/ScrollContainer/VBoxContainer/TextureButton12"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "TEST"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme = SubResource("Theme_ohsdd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qw08e")
+text = "TEST UPGRADE"
 
 [node name="MarginContainer" type="MarginContainer" parent="GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("7_dr4ef")
-stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_j00w4")
+
+[node name="Label" type="Label" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer"]
+layout_mode = 2
+text = "$_money
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_rpkal")
+
+[node name="Label" type="Label" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2"]
+layout_mode = 2
+text = "TEST"
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_0nrbo")
+
+[node name="Label" type="Label" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer3"]
+layout_mode = 2
+text = "TEST"
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a0ms7")
+
+[node name="MarginContainer" type="MarginContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/PanelContainer"]
+position = Vector2(234, 163)
+scale = Vector2(2.36458, 2.36458)
+sprite_frames = SubResource("SpriteFrames_fcngr")
+animation = &"idle"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/PanelContainer/AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_n3ybl")
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="GridContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxTexture_mssx6")
