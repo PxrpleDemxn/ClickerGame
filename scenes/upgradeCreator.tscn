@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://badv77p0bbosd"]
+
+[ext_resource type="Script" path="res://Scripts/DebugWindow.cs" id="2_xligb"]
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("nameEdit", "descEdit", "incomeEdit", "priceEdit", "vBoxContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_xligb")
+nameEdit = NodePath("VBoxContainer/LineEdit")
+descEdit = NodePath("VBoxContainer/LineEdit2")
+incomeEdit = NodePath("VBoxContainer/LineEdit4")
+priceEdit = NodePath("VBoxContainer/LineEdit3")
+vBoxContainer = NodePath("ScrollContainer/MarginContainer/VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 206.0
+offset_bottom = 176.0
+
+[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="LineEdit2" type="LineEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Description"
+
+[node name="LineEdit3" type="LineEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "0"
+placeholder_text = "Price"
+
+[node name="LineEdit4" type="LineEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "0"
+placeholder_text = "Income"
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Create"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 6.0
+offset_right = 510.0
+offset_bottom = 210.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
