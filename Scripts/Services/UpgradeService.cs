@@ -27,12 +27,18 @@ public partial class UpgradeService : IUpgradeService
 		return _upgradeList;
 	}
 
+	public void SetUpgrades(List<Upgrade> upgrades)
+    {
+		// Sets parameter list to list we need
+        _upgradeList = upgrades;
+    }
+
 	public void AddUpgrade(Upgrade upgrade)
 	{
 		_upgradeList.Add(upgrade);
 	}
 
-	public void SetDamage(Upgrade item, long damage)
+	public void SetIncome(Upgrade item, long income)
 	{
 		throw new NotImplementedException();
 	}
@@ -72,7 +78,7 @@ public partial class UpgradeService : IUpgradeService
 		dummy.Name = "Dummy"+rnd.Next(0,1000);
 		dummy.Description = "Description";
 		dummy.Level = rnd.Next(0,100);
-		dummy.Damage = rnd.Next(1000,10000);
+		dummy.Income = rnd.Next(1000,10000);
 		dummy.Price = rnd.Next(100,5000);
 
 		// Add to list
@@ -81,9 +87,19 @@ public partial class UpgradeService : IUpgradeService
 		GD.Print("Dummy upgrade created: " + dummy.Name);
     }
 
-    public void SetUpgrades(List<Upgrade> upgrades)
-    {
-		// Sets parameter list to list we need
-        _upgradeList = upgrades;
-    }
+	public void CreateUpgrade(string name, string desc, int level, double income, double price)
+	{
+		// Create Upgrade class
+		Upgrade upgrade = new();
+
+		// Set variables
+		upgrade.Name = name;
+		upgrade.Description = desc;
+		upgrade.Level = level;
+		upgrade.Income = income;
+		upgrade.Price = price;
+
+		// Add to list
+		AddUpgrade(upgrade);
+	}
 }

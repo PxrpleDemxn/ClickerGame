@@ -13,12 +13,12 @@ public partial class Upgrade
 	/// </summary>
 	public int Level { get; set; }
 	/// <summary>
-	/// Current damage
+	/// Current income
 	/// </summary>
-	public long Damage { get; set; }
+	public double Income { get; set; }
 
 	/// <summary>
 	/// Current price needed for new upgrade
 	/// </summary>
-	public long Price { get; set; }
+	public double Price { get; set; }
 }
