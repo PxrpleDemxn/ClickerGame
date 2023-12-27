@@ -19,4 +19,14 @@ public interface ISaveService
 	/// </summary>
 	/// <returns>List of upgrades</returns>
 	void LoadUpgrades();
+
+	/// <summary>
+	/// Saves game stats only
+	/// </summary>
+	void SaveGameStats(GameStats gameStats);
+
+	/// <summary>
+	/// Load game stats
+	/// </summary>
+	void LoadGameStats();
 }

@@ -4,7 +4,7 @@
 
 [node name="Node" type="Node"]
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("nameEdit", "descEdit", "incomeEdit", "priceEdit", "vBoxContainer")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("nameEdit", "descEdit", "incomeEdit", "priceEdit", "vBoxContainer", "_coinsSpinBox", "lbl")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,8 @@ descEdit = NodePath("VBoxContainer/LineEdit2")
 incomeEdit = NodePath("VBoxContainer/LineEdit4")
 priceEdit = NodePath("VBoxContainer/LineEdit3")
 vBoxContainer = NodePath("ScrollContainer/MarginContainer/VBoxContainer")
+_coinsSpinBox = NodePath("SpinBox")
+lbl = NodePath("Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 0
@@ -64,4 +66,47 @@ size_flags_vertical = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 214.0
+offset_right = 205.0
+offset_bottom = 237.0
+text = "Coins:"
+
+[node name="addCoins" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 250.0
+offset_right = 200.0
+offset_bottom = 281.0
+text = "Add Coins"
+
+[node name="removeCoins" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 250.0
+offset_right = 326.0
+offset_bottom = 281.0
+text = "Remove Coins"
+
+[node name="setCoins2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 250.0
+offset_right = 447.0
+offset_bottom = 281.0
+text = "Set Coins"
+
+[node name="SpinBox" type="SpinBox" parent="Control"]
+offset_left = 5.0
+offset_top = 250.0
+offset_right = 112.0
+offset_bottom = 281.0
+max_value = 1e+06
+step = 0.1
+
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/addCoins" to="Control" method="_on_set_coins_pressed"]
+[connection signal="pressed" from="Control/removeCoins" to="Control" method="_on_remove_coins_pressed"]
+[connection signal="pressed" from="Control/setCoins2" to="Control" method="_on_set_coins_2_pressed"]
