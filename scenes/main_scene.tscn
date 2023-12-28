@@ -1,0 +1,733 @@
+[gd_scene load_steps=22 format=3 uid="uid://c5iqi7tppeour"]
+
+[ext_resource type="Texture2D" uid="uid://c6hg1n7033jgj" path="res://assets/BG/parallax-space-backgound.png" id="1_jpa1d"]
+[ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="2_jfuoe"]
+[ext_resource type="Texture2D" uid="uid://bpwon5jhnum31" path="res://assets/UI/MainPanel02.png" id="3_48cws"]
+[ext_resource type="Texture2D" uid="uid://ca7l5mc6r3014" path="res://assets/UI/Button02.png" id="4_jdwyp"]
+[ext_resource type="Texture2D" uid="uid://5fnobvxiq5kx" path="res://assets/UI/Button15.png" id="5_sr21x"]
+[ext_resource type="Texture2D" uid="uid://bg0b54fi7lor1" path="res://assets/BG/parallax-space-big-planet.png" id="6_4r42t"]
+[ext_resource type="Texture2D" uid="uid://chd428dod2ruq" path="res://assets/UI/Button05.png" id="6_a83nu"]
+[ext_resource type="Texture2D" uid="uid://cmm7if527iull" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_Bar.png" id="8_8otn2"]
+[ext_resource type="Texture2D" uid="uid://dyff676yvyxkw" path="res://assets/Planets/2410639180.png" id="8_axxgd"]
+[ext_resource type="Texture2D" uid="uid://uen3imtmbw57" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_ProgressBar.png" id="9_7cc0v"]
+[ext_resource type="Texture2D" uid="uid://c40bvf4c52aas" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_ProgressBarBorder.png" id="10_68d6t"]
+[ext_resource type="Texture2D" uid="uid://1acha1fbvesh" path="res://assets/1. Free Hologram Interface Wenrexa/Icons/20.png" id="12_tmh4o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ris8x"]
+content_margin_left = 40.0
+content_margin_top = 80.0
+content_margin_right = 40.0
+content_margin_bottom = 80.0
+texture = ExtResource("2_jfuoe")
+expand_margin_left = 50.0
+expand_margin_top = 25.0
+expand_margin_right = 50.0
+expand_margin_bottom = 25.0
+modulate_color = Color(1, 1, 1, 0.780392)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhl74"]
+texture = ExtResource("3_48cws")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xgml0"]
+texture = ExtResource("4_jdwyp")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_si3cd"]
+texture = ExtResource("5_sr21x")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfwpy"]
+texture = ExtResource("6_a83nu")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w85uy"]
+texture = ExtResource("6_4r42t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irjhv"]
+texture = ExtResource("8_8otn2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ada0"]
+texture = ExtResource("9_7cc0v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1tky"]
+texture = ExtResource("8_axxgd")
+
+[node name="Node" type="Node"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(7.05882, 7.05882)
+texture = ExtResource("1_jpa1d")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+
+[node name="MainTest" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainTest"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="GameUIPanel" type="PanelContainer" parent="MainTest/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ris8x")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="UpgradesMenu" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "UPGRADES
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="listOfButtons" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UpgradeContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer2" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer2/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer2/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer2/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer2/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer2/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer3" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer3/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer3/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer3/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer3/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer3/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer4" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer4"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer4/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer4/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer4/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer4/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer4/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer5" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer5"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer5/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer5/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer5/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer5/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer5/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer6" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer6"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer6/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer6/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer6/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer6/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer6/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer7" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer7"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer7/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer7/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer7/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer7/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer7/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer8" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer8"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer8/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer8/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer8/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer8/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer8/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer9" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer9"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer9/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer9/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer9/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer9/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer9/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer10" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer10"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer10/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer10/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer10/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer10/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer10/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer11" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer11"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer11/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer11/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer11/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer11/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer11/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="UpgradeContainer12" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Upgrade" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer12"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xgml0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer12/Upgrade"]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer12/Upgrade/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_si3cd")
+text = "$_upgradeName
+"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer12/Upgrade/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer12/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade cost:"
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer/listOfButtons/UpgradeContainer12/Upgrade/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="Gamebox" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox"]
+layout_mode = 2
+
+[node name="GameStatsContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 10
+
+[node name="CoinsContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Coins: "
+
+[node name="Label2" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "$_money"
+
+[node name="CoinsPerClickContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsPerClickContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsPerClickContainer/VBoxContainer"]
+layout_mode = 2
+text = "coins per click:"
+
+[node name="Label2" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsPerClickContainer/VBoxContainer"]
+layout_mode = 2
+text = "$_coinsPerClick"
+
+[node name="PassiveIncomeContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/PassiveIncomeContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/PassiveIncomeContainer/VBoxContainer"]
+layout_mode = 2
+text = "Passive income:"
+
+[node name="Label2" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/PassiveIncomeContainer/VBoxContainer"]
+layout_mode = 2
+text = "$_income"
+
+[node name="EnemyContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 15
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w85uy")
+
+[node name="HealthBarContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="ProgressBar" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxTexture_irjhv")
+theme_override_styles/fill = SubResource("StyleBoxTexture_3ada0")
+value = 100.0
+rounded = true
+
+[node name="TextureRect" type="TextureRect" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/TextureProgressBar"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_68d6t")
+
+[node name="PanelContainer3" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g1tky")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+TEST TEXTTEST TEXTTEST TEXTTEST TEXT
+[/center]"
+scroll_following = true
+
+[node name="possible menubutton" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1820, 95)
+scale = Vector2(2.63333, 2.63333)
+texture = ExtResource("12_tmh4o")
