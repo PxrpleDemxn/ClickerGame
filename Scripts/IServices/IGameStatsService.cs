@@ -40,6 +40,18 @@ public partial interface IGameStatsService
 	double GetIncome();
 
 	/// <summary>
+	/// Sets coins per one click
+	/// </summary>
+	/// <param name="coinsPerClick">Coins per click</param>
+	void SetCoinsPerClick(double coinsPerClick);
+
+	/// <summary>
+	/// Gets current coins per one click
+	/// </summary>
+	/// <returns>coinsPerClick</returns>
+	double GetCoinsPerClick();
+
+	/// <summary>
 	/// Sets Game Stats
 	/// </summary>
 	/// <param name="gameStats">Game Stats</param>

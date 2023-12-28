@@ -9,4 +9,10 @@ public partial class GameStats
     /// Game Income
     /// </summary>
     public double Income { get; set; }
+
+    /// <summary>
+    /// Coins per one click
+    /// </summary>
+    public double CoinsPerClick {get; set;}
+
 }

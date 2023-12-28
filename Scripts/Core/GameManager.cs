@@ -27,10 +27,18 @@ public partial class GameManager : Node
 
 
 		#endregion
+
+				GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer/CoinsLabel").Text = _gameStatsService.GetCoins().ToString();
+		GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2/CoinsPerClickLabel").Text = "CPS: " + _gameStatsService.GetCoinsPerClick() + "/pc"; 
+
 	}
 
 	public override void _Process(double delta)
 	{
+		//Coins -> Shown in label 
+		//GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer/CoinsLabel").Text = _gameStatsService.GetCoins().ToString();
+		//GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2/CoinsPerClickLabel").Text = "CPS: " + _gameStatsService.GetCoinsPerClick() + "/pc"; 
+		//GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer3/PassiveIncomeLabel").Text = "Passive income: " + _gameStatsService.GetIncome() + "/sec";
 	}
 
 	// Saving when app is closed
@@ -52,4 +60,13 @@ public partial class GameManager : Node
 		_saveService.LoadUpgrades();
 		_saveService.LoadGameStats();
 	}
+
+	//
+
+	public void _on_texture_button_pressed(){
+		_gameStatsService.AddCoins(_gameStatsService.GetCoinsPerClick());
+				GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer/CoinsLabel").Text = _gameStatsService.GetCoins().ToString();
+		GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2/CoinsPerClickLabel").Text = "CPS: " + _gameStatsService.GetCoinsPerClick() + "/pc"; 
+	}
+
 }
