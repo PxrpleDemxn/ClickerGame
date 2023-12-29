@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5iqi7tppeour"]
+[gd_scene load_steps=23 format=3 uid="uid://c5iqi7tppeour"]
 
 [ext_resource type="Script" path="res://Scripts/Core/GameManager.cs" id="1_nnbaf"]
 [ext_resource type="Texture2D" uid="uid://d2mtm6wdu4q4w" path="res://assets/BG/Space Background.png" id="2_ave7i"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dyff676yvyxkw" path="res://assets/Planets/2410639180.png" id="8_axxgd"]
 [ext_resource type="Texture2D" uid="uid://uen3imtmbw57" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_ProgressBar.png" id="9_7cc0v"]
 [ext_resource type="Texture2D" uid="uid://c40bvf4c52aas" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_ProgressBarBorder.png" id="10_68d6t"]
+[ext_resource type="Texture2D" uid="uid://ud0nv3mcxf0v" path="res://assets/UI/SelectPanel03.png" id="12_7vew1"]
 [ext_resource type="Texture2D" uid="uid://1acha1fbvesh" path="res://assets/1. Free Hologram Interface Wenrexa/Icons/20.png" id="12_tmh4o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ris8x"]
@@ -56,13 +57,22 @@ texture = ExtResource("9_7cc0v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1tky"]
 texture = ExtResource("8_axxgd")
 
-[node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick", "enemyHealthBar")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxl2p"]
+texture = ExtResource("12_7vew1")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(1, 1, 1, 0.639216)
+
+[node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick", "enemyHealthBar", "enemyList")]
 script = ExtResource("1_nnbaf")
 clickToHitButton = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/enemy_click_to_hit_button")
 coins = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/coins_label")
 income = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/income_label")
 hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/hit_per_click_label")
 enemyHealthBar = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar")
+enemyList = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer/ItemList")
 
 [node name="MainTest" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -272,46 +282,17 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g1tky")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-bbcode_enabled = true
-text = "[center]
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-TEST TEXTTEST TEXTTEST TEXTTEST TEXT
-[/center]"
-scroll_following = true
+
+[node name="ItemList" type="ItemList" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxTexture_vxl2p")
+same_column_width = true
 
 [node name="possible menubutton" type="Sprite2D" parent="."]
 visible = false
