@@ -7,7 +7,7 @@ public partial class GameManager : Node
 	[Export]
 	Button clickToHitButton;
 	[Export]
-	Label coins,income,hitPerClick;
+	Label coins, income, hitPerClick;
 	[Export]
 	ProgressBar enemyHealthBar;
 	double enemyHealth = 10;
@@ -20,28 +20,17 @@ public partial class GameManager : Node
 		#region TESTING_ONLY
 
 		LoadSaves();
+		LoadComponents();
 
-		//  _upgradeService.CreateDummyUpgrade();
-		//  _upgradeService.CreateDummyUpgrade();
-		//  _upgradeService.CreateDummyUpgrade();
-
-		// foreach (var item in _upgradeService.GetUpgrades())
-		// {
-		// 	GD.Print(item.Name);
-		// }
-		GD.Print(_gameStatsService.GetCoins());
-		_gameStatsService.AddCoins(200);
-		GD.Print(_gameStatsService.GetCoins());
-
-		// NT -> default to one, idk where to change it
 		_gameStatsService.SetHitsPerClick(1);
 
 		#endregion
 
 
 		// changed labels to display data from _gameservice - coins and coinsperclick
-		coins.Text = _gameStatsService.GetCoins().ToString();
-		hitPerClick.Text = "CPS: " + _gameStatsService.GetHitsPerClick() + "/pc"; 
+		coins.Text = "Coins: " + _gameStatsService.GetCoins().ToString();
+		//coins.Text = _gameStatsService.GetCoins().ToString();
+		hitPerClick.Text = "CPS: " + _gameStatsService.GetHitsPerClick() + "/pc";
 		//income.Text = "Passive income: " + _gameStatsService.GetIncome() + "/sec";
 
 		clickToHitButton.Pressed += enemyClickToHit_button_pressed;
@@ -73,20 +62,28 @@ public partial class GameManager : Node
 
 	//
 
-	public void enemyClickToHit_button_pressed(){
-		
+	public void enemyClickToHit_button_pressed()
+	{
+
 		enemyHealth -= _gameStatsService.GetHitsPerClick();
-				enemyHealthBar.Value = enemyHealth;
-				if(enemyHealth<=0){
-					_gameStatsService.AddCoins(1);
-					coins.Text = _gameStatsService.GetCoins().ToString();
-					enemyHealth = 10;
-					enemyHealthBar.Value = enemyHealth;
-				}
+		enemyHealthBar.Value = enemyHealth;
+		if (enemyHealth <= 0)
+		{
+			_gameStatsService.AddCoins(1);
+			coins.Text = _gameStatsService.GetCoins().ToString();
+			enemyHealth = 10;
+			enemyHealthBar.Value = enemyHealth;
+		}
 
-				
-				
-				
+
+
+
 	}
-
+	// Load components
+	private void LoadComponents()
+	{
+		PackedScene upgradeList = GD.Load<PackedScene>("res://scenes/dynamic/list_of_upgrade_buttons.tscn");
+		ScrollContainer upgradeScrlContainer = GetNode<ScrollContainer>("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer");
+		upgradeScrlContainer.AddChild(upgradeList.Instantiate());
+	}
 }
