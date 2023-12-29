@@ -56,12 +56,13 @@ texture = ExtResource("9_7cc0v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1tky"]
 texture = ExtResource("8_axxgd")
 
-[node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick")]
+[node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick", "enemyHealthBar")]
 script = ExtResource("1_nnbaf")
 clickToHitButton = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/enemy_click_to_hit_button")
 coins = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/coins_label")
 income = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/income_label")
 hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/hit_per_click_label")
+enemyHealthBar = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar")
 
 [node name="MainTest" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -229,15 +230,16 @@ flat = true
 [node name="HealthBarContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureProgressBar" type="ProgressBar" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer"]
+[node name="enemy_health_bar" type="ProgressBar" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/background = SubResource("StyleBoxTexture_irjhv")
 theme_override_styles/fill = SubResource("StyleBoxTexture_3ada0")
-value = 100.0
+max_value = 10.0
+value = 10.0
 rounded = true
 
-[node name="TextureRect" type="TextureRect" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/TextureProgressBar"]
+[node name="TextureRect" type="TextureRect" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar"]
 visible = false
 layout_mode = 1
 anchors_preset = 15

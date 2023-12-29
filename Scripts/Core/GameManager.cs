@@ -8,6 +8,9 @@ public partial class GameManager : Node
 	Button clickToHitButton;
 	[Export]
 	Label coins,income,hitPerClick;
+	[Export]
+	ProgressBar enemyHealthBar;
+	double enemyHealth = 10;
 
 	private IUpgradeService _upgradeService = UpgradeService.Instance;
 	private ISaveService _saveService = new SaveService();
@@ -30,6 +33,7 @@ public partial class GameManager : Node
 		_gameStatsService.AddCoins(200);
 		GD.Print(_gameStatsService.GetCoins());
 
+		// NT -> default to one, idk where to change it
 		_gameStatsService.SetHitsPerClick(1);
 
 		#endregion
@@ -70,8 +74,19 @@ public partial class GameManager : Node
 	//
 
 	public void enemyClickToHit_button_pressed(){
-		_gameStatsService.AddCoins(_gameStatsService.GetHitsPerClick());
-				coins.Text = _gameStatsService.GetCoins().ToString();
+		
+		enemyHealth -= _gameStatsService.GetHitsPerClick();
+				enemyHealthBar.Value = enemyHealth;
+				if(enemyHealth<=0){
+					_gameStatsService.AddCoins(1);
+					coins.Text = _gameStatsService.GetCoins().ToString();
+					enemyHealth = 10;
+					enemyHealthBar.Value = enemyHealth;
+				}
+
+				
+				
+				
 	}
 
 }

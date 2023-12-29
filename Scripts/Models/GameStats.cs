@@ -11,7 +11,7 @@ public partial class GameStats
     public double Income { get; set; }
 
     /// <summary>
-    /// Coins per one click
+    /// Hits per one click
     /// </summary>
     public double HitsPerClick {get; set;}
 
