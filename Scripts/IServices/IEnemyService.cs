@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial interface IEnemyService{
 
@@ -64,5 +65,47 @@ public partial interface IEnemyService{
     /// </summary>
     /// <param name="currentHealth">Current health</param>
     double GetCurrentHealth();
+
+	/// <summary>
+	/// Sets all upgrades to list
+	/// </summary>
+	/// <param name="enemies">List of all enemy objects</param>
+	void SetEnemies(List<Enemy> enemies);
+
+     /// <summary>
+	/// Gets all enemies in list
+	/// </summary>
+	/// <returns>List of all enemy objects</returns>
+	List<Enemy> GetEnemies();
+
+    /// <summary>
+	/// Adds enemy to list
+	/// </summary>
+	/// <param name="enemy">Enemy</param>
+	void AddEnemy(Enemy enemy);
+    
+    /// <summary>
+    /// Gets enemy from list on index
+    /// </summary>
+    /// <param name="index">index</param>
+    /// <returns>single Enemy object</returns>
+    Enemy GetEnemy(int index);
+
+    /// <summary>
+	/// Creates dummy object for testing
+	/// </summary>
+	void CreateDummyEnemy();
+    /// <summary>
+    /// Creates Enemy object
+    /// </summary>
+    /// <param name="name">Name</param>
+    /// <param name="desc">Description</param>
+    /// <param name="level">Level</param>
+    /// <param name="coinsEarned">Coins Earned</param>
+    /// <param name="maxHealth">Max Health</param>
+    /// <param name="currentHealth">Current Health</param>
+    void CreateEnemy(string name, string desc, int level, double coinsEarned, double maxHealth);
+
+	
 
 }
