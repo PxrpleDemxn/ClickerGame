@@ -36,7 +36,7 @@ public partial class SaveService : ISaveService
       return;
     }
     // Using Newtonsoft.Json we deserialize object to automatically convert it back to List<Upgrade>
-    _upgradeService.SetUpgrades(JsonConvert.DeserializeObject<List<Upgrade>>(load.GetLine()));
+    _upgradeService.SetUpgrades(JsonConvert.DeserializeObject<List<Upgrade>>(load.GetAsText()));
   }
 
   public void SaveGameStats(GameStats gameStats)
@@ -64,6 +64,6 @@ public partial class SaveService : ISaveService
     }
 
     // Using Newtonsoft.Json we deserialize object to automatically convert it back to GameStats
-    _gameStats.SetGameStats(JsonConvert.DeserializeObject<GameStats>(load.GetLine()));
+    _gameStats.SetGameStats(JsonConvert.DeserializeObject<GameStats>(load.GetAsText()));
   }
 }
