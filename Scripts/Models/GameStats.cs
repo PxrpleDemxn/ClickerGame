@@ -13,6 +13,6 @@ public partial class GameStats
     /// <summary>
     /// Coins per one click
     /// </summary>
-    public double CoinsPerClick {get; set;}
+    public double HitsPerClick {get; set;}
 
 }

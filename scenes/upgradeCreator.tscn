@@ -99,6 +99,7 @@ offset_bottom = 281.0
 text = "Set Coins"
 
 [node name="SpinBox" type="SpinBox" parent="Control"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 250.0
 offset_right = 112.0

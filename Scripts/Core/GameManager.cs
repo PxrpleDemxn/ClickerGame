@@ -4,6 +4,11 @@ using Newtonsoft.Json;
 
 public partial class GameManager : Node
 {
+	[Export]
+	Button clickToHitButton;
+	[Export]
+	Label coins,income,hitPerClick;
+
 	private IUpgradeService _upgradeService = UpgradeService.Instance;
 	private ISaveService _saveService = new SaveService();
 	private IGameStatsService _gameStatsService = GameStatsService.Instance;
@@ -25,20 +30,21 @@ public partial class GameManager : Node
 		_gameStatsService.AddCoins(200);
 		GD.Print(_gameStatsService.GetCoins());
 
+		_gameStatsService.SetHitsPerClick(1);
 
 		#endregion
 
-				GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer/CoinsLabel").Text = _gameStatsService.GetCoins().ToString();
-		GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2/CoinsPerClickLabel").Text = "CPS: " + _gameStatsService.GetCoinsPerClick() + "/pc"; 
 
+		// changed labels to display data from _gameservice - coins and coinsperclick
+		coins.Text = _gameStatsService.GetCoins().ToString();
+		hitPerClick.Text = "CPS: " + _gameStatsService.GetHitsPerClick() + "/pc"; 
+		//income.Text = "Passive income: " + _gameStatsService.GetIncome() + "/sec";
+
+		clickToHitButton.Pressed += enemyClickToHit_button_pressed;
 	}
 
 	public override void _Process(double delta)
 	{
-		//Coins -> Shown in label 
-		//GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer/CoinsLabel").Text = _gameStatsService.GetCoins().ToString();
-		//GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2/CoinsPerClickLabel").Text = "CPS: " + _gameStatsService.GetCoinsPerClick() + "/pc"; 
-		//GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer3/PassiveIncomeLabel").Text = "Passive income: " + _gameStatsService.GetIncome() + "/sec";
 	}
 
 	// Saving when app is closed
@@ -63,10 +69,9 @@ public partial class GameManager : Node
 
 	//
 
-	public void _on_texture_button_pressed(){
-		_gameStatsService.AddCoins(_gameStatsService.GetCoinsPerClick());
-				GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer/CoinsLabel").Text = _gameStatsService.GetCoins().ToString();
-		GetNode<Label>("GridContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/GridContainer/PanelContainer2/CoinsPerClickLabel").Text = "CPS: " + _gameStatsService.GetCoinsPerClick() + "/pc"; 
+	public void enemyClickToHit_button_pressed(){
+		_gameStatsService.AddCoins(_gameStatsService.GetHitsPerClick());
+				coins.Text = _gameStatsService.GetCoins().ToString();
 	}
 
 }

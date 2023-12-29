@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://c5iqi7tppeour"]
 
-[ext_resource type="Texture2D" uid="uid://c6hg1n7033jgj" path="res://assets/BG/parallax-space-backgound.png" id="1_jpa1d"]
+[ext_resource type="Script" path="res://Scripts/Core/GameManager.cs" id="1_nnbaf"]
 [ext_resource type="Texture2D" uid="uid://d2mtm6wdu4q4w" path="res://assets/BG/Space Background.png" id="2_ave7i"]
 [ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="2_jfuoe"]
 [ext_resource type="Texture2D" uid="uid://bpwon5jhnum31" path="res://assets/UI/MainPanel02.png" id="3_48cws"]
@@ -56,39 +56,24 @@ texture = ExtResource("9_7cc0v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1tky"]
 texture = ExtResource("8_axxgd")
 
-[node name="Node" type="Node"]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enabled = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(1920, 1080)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-visible = false
-scale = Vector2(7.05882, 7.05882)
-texture = ExtResource("1_jpa1d")
-centered = false
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_offset = Vector2(1920, 0)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("2_ave7i")
-stretch_mode = 1
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick")]
+script = ExtResource("1_nnbaf")
+clickToHitButton = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/enemy_click_to_hit_button")
+coins = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/coins_label")
+income = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/income_label")
+hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/hit_per_click_label")
 
 [node name="MainTest" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="Background" type="TextureRect" parent="MainTest"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ave7i")
+stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="MainTest"]
 anchors_preset = 15
@@ -119,7 +104,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
 [node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
+[node name="static_text Upgrades-title" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
@@ -137,7 +122,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_vae7o")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="listOfButtons" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer" instance=ExtResource("5_2pvdn")]
+[node name="list_of_upgrade_buttons" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer" instance=ExtResource("5_2pvdn")]
 layout_mode = 2
 
 [node name="Gamebox" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
@@ -156,59 +141,59 @@ theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer"]
+[node name="game_stats_flow_container" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 10
 
-[node name="CoinsContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer"]
+[node name="CoinsContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
 
-[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer/MarginContainer/VBoxContainer"]
+[node name="static text - coins" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Coins: "
 
-[node name="Label2" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsContainer/MarginContainer/VBoxContainer"]
+[node name="coins_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "$_money"
 
-[node name="CoinsPerClickContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer"]
+[node name="CoinsPerClickContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsPerClickContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsPerClickContainer/VBoxContainer"]
+[node name="static_text hit per click" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
 layout_mode = 2
-text = "coins per click:"
+text = "hit per click:"
 
-[node name="Label2" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/CoinsPerClickContainer/VBoxContainer"]
+[node name="hit_per_click_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
 layout_mode = 2
-text = "$_coinsPerClick"
+text = "$_hitPerClick"
 
-[node name="PassiveIncomeContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer"]
+[node name="PassiveIncomeContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/PassiveIncomeContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/PassiveIncomeContainer/VBoxContainer"]
+[node name="static_text passive income" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
 layout_mode = 2
 text = "Passive income:"
 
-[node name="Label2" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/HFlowContainer/PassiveIncomeContainer/VBoxContainer"]
+[node name="income_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
 layout_mode = 2
 text = "$_income"
 
@@ -234,6 +219,12 @@ theme_override_constants/margin_bottom = 50
 [node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_w85uy")
+
+[node name="enemy_click_to_hit_button" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
 
 [node name="HealthBarContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
 layout_mode = 2
