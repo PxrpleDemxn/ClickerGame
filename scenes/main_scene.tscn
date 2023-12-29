@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5iqi7tppeour"]
+[gd_scene load_steps=23 format=3 uid="uid://c5iqi7tppeour"]
 
 [ext_resource type="Texture2D" uid="uid://c6hg1n7033jgj" path="res://assets/BG/parallax-space-backgound.png" id="1_jpa1d"]
+[ext_resource type="Texture2D" uid="uid://d2mtm6wdu4q4w" path="res://assets/BG/Space Background.png" id="2_ave7i"]
 [ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="2_jfuoe"]
 [ext_resource type="Texture2D" uid="uid://bpwon5jhnum31" path="res://assets/UI/MainPanel02.png" id="3_48cws"]
 [ext_resource type="Texture2D" uid="uid://ca7l5mc6r3014" path="res://assets/UI/Button02.png" id="4_jdwyp"]
@@ -72,17 +73,26 @@ texture = ExtResource("8_axxgd")
 follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
 scale = Vector2(7.05882, 7.05882)
 texture = ExtResource("1_jpa1d")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_offset = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_ave7i")
+stretch_mode = 1
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 
