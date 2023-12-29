@@ -63,11 +63,11 @@ public partial class GameStatsService : IGameStatsService
 		return _gameStats;
 	}
 
-	public void SetCoinsPerClick(double coinsPerClick){
-		_gameStats.CoinsPerClick = coinsPerClick;
+	public void SetHitsPerClick(double hitsPerClick){
+		_gameStats.HitsPerClick = hitsPerClick;
 	}
 
-	public double GetCoinsPerClick(){
-		return _gameStats.CoinsPerClick;
+	public double GetHitsPerClick(){
+		return _gameStats.HitsPerClick;
 	}
 }
