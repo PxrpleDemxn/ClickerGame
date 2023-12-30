@@ -1,0 +1,204 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgnwxalr6lttk"]
+
+[ext_resource type="Texture2D" uid="uid://d2mtm6wdu4q4w" path="res://assets/BG/Space Background.png" id="1_dtfxo"]
+[ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="2_472p2"]
+
+[node name="Map" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dtfxo")
+stretch_mode = 6
+
+[node name="MainPanel01" type="Sprite2D" parent="."]
+position = Vector2(973, 544)
+scale = Vector2(1.87571, 1.87571)
+texture = ExtResource("2_472p2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 92.0
+offset_right = 1720.0
+offset_bottom = 994.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button5" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button6" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button7" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button8" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button9" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button10" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button11" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button12" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button13" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button14" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button15" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button16" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button17" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button18" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button19" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button20" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button21" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button22" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button23" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button24" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button25" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button26" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button27" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button2" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button3" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"
+
+[node name="Button4" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+text = "TEST"

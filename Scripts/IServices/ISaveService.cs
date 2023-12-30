@@ -29,4 +29,13 @@ public interface ISaveService
 	/// Load game stats
 	/// </summary>
 	void LoadGameStats();
+	/// <summary>
+	/// Save enemy list
+	/// </summary>
+	/// <param name="Enemies"></param>
+	void SaveEnemies(List<Enemy> Enemies);
+	/// <summary>
+	/// Load enemy list
+	/// </summary>
+	void LoadEnemies();
 }

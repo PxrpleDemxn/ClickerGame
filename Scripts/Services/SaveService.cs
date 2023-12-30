@@ -75,7 +75,7 @@ public partial class SaveService : ISaveService
     _gameStats.SetGameStats(JsonConvert.DeserializeObject<GameStats>(load.GetAsText()));
   }
 
-  public void SaveEnemy(Enemy enemy)
+  public void SaveEnemies(List<Enemy> Enemies)
   {
     // Opens path and sets flag to write
     using var save = FileAccess.Open(enemySavePath, FileAccess.ModeFlags.Write);
@@ -87,7 +87,7 @@ public partial class SaveService : ISaveService
 
   }
 
-  public void LoadEnemy(){
+  public void LoadEnemies(){
     // Opens path and sets flag to read
     using var load = FileAccess.Open(enemySavePath, FileAccess.ModeFlags.Read);
     // Checks if load file exists... if not it create new empty List<Enemy>

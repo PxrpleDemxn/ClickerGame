@@ -10,6 +10,8 @@ public partial class GameManager : Node
 	Label coins, income, hitPerClick;
 	[Export]
 	ProgressBar enemyHealthBar;
+	[Export]
+	ItemList enemyList;
 	double enemyHealth = 10;
 
 	[Export]
@@ -31,6 +33,9 @@ public partial class GameManager : Node
 
 		#endregion
 
+		for(int i=0;i<20;i++){
+			enemyList.AddItem("Enemy lvl" + i);
+		}
 
 		// changed labels to display data from _gameservice - coins and coinsperclick
 		coins.Text = "Coins: " + _gameStatsService.GetCoins().ToString();
@@ -52,6 +57,7 @@ public partial class GameManager : Node
 		{
 			_saveService.SaveGameStats(_gameStatsService.GetGameStats());
 			_saveService.SaveUpgrades(_upgradeService.GetUpgrades());
+			//_saveService.SaveEnemies(_enemyService.GetEnemies());
 			GetTree().Quit();
 
 		}
@@ -63,6 +69,7 @@ public partial class GameManager : Node
 	{
 		_saveService.LoadUpgrades();
 		_saveService.LoadGameStats();
+		//_saveService.LoadEnemies();
 	}
 
 	//
