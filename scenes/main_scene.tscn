@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5iqi7tppeour"]
+[gd_scene load_steps=26 format=3 uid="uid://c5iqi7tppeour"]
 
 [ext_resource type="Script" path="res://Scripts/Core/GameManager.cs" id="1_nnbaf"]
 [ext_resource type="Texture2D" uid="uid://d2mtm6wdu4q4w" path="res://assets/BG/Space Background.png" id="2_ave7i"]
 [ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="2_jfuoe"]
 [ext_resource type="Texture2D" uid="uid://bpwon5jhnum31" path="res://assets/UI/MainPanel02.png" id="3_48cws"]
-[ext_resource type="PackedScene" uid="uid://cr80hg474o0tw" path="res://scenes/dynamic/list_of_upgrade_buttons.tscn" id="5_2pvdn"]
+[ext_resource type="Texture2D" uid="uid://cxay8sp4p0wwm" path="res://assets/UI/Button16.png" id="4_7qk7y"]
+[ext_resource type="PackedScene" uid="uid://cr80hg474o0tw" path="res://Scenes/dynamic/list_of_upgrade_buttons.tscn" id="5_2pvdn"]
 [ext_resource type="Texture2D" uid="uid://bg0b54fi7lor1" path="res://assets/BG/parallax-space-big-planet.png" id="6_4r42t"]
 [ext_resource type="Texture2D" uid="uid://chd428dod2ruq" path="res://assets/UI/Button05.png" id="6_a83nu"]
 [ext_resource type="Texture2D" uid="uid://cmm7if527iull" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_Bar.png" id="8_8otn2"]
@@ -25,6 +26,13 @@ expand_margin_top = 25.0
 expand_margin_right = 50.0
 expand_margin_bottom = 25.0
 modulate_color = Color(1, 1, 1, 0.780392)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdnmj"]
+texture = ExtResource("4_7qk7y")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhl74"]
 texture = ExtResource("3_48cws")
@@ -57,6 +65,13 @@ texture = ExtResource("9_7cc0v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1tky"]
 texture = ExtResource("8_axxgd")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5fhe"]
+bg_color = Color(0.301961, 0.301961, 0.301961, 0.443137)
+expand_margin_left = 25.0
+expand_margin_top = 25.0
+expand_margin_right = 25.0
+expand_margin_bottom = 25.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxl2p"]
 texture = ExtResource("12_7vew1")
 texture_margin_left = 20.0
@@ -67,12 +82,12 @@ modulate_color = Color(1, 1, 1, 0.639216)
 
 [node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick", "enemyHealthBar", "enemyList")]
 script = ExtResource("1_nnbaf")
-clickToHitButton = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/enemy_click_to_hit_button")
-coins = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/coins_label")
-income = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/income_label")
-hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/hit_per_click_label")
-enemyHealthBar = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar")
-enemyList = NodePath("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer/ItemList")
+clickToHitButton = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/enemy_click_to_hit_button")
+coins = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/coins_label")
+income = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/income_label")
+hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/hit_per_click_label")
+enemyHealthBar = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar")
+enemyList = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer/ItemList")
 
 [node name="MainTest" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -101,21 +116,77 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ris8x")
 
-[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer"]
+[node name="MenuContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="GridContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 5
+
+[node name="Button" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qdnmj")
+text = "TEST"
+
+[node name="Button2" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qdnmj")
+text = "TEST"
+
+[node name="Button3" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qdnmj")
+text = "TEST"
+
+[node name="Button4" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qdnmj")
+text = "TEST"
+
+[node name="Button5" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qdnmj")
+text = "TEST"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="UpgradesMenu" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
+[node name="UpgradesMenu" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/UpgradesMenu"]
 layout_mode = 2
 
-[node name="static_text Upgrades-title" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
+[node name="static_text Upgrades-title" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
@@ -124,91 +195,91 @@ text = "UPGRADES
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_vae7o")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="list_of_upgrade_buttons" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer" instance=ExtResource("5_2pvdn")]
+[node name="list_of_upgrade_buttons" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer" instance=ExtResource("5_2pvdn")]
 layout_mode = 2
 
-[node name="Gamebox" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
+[node name="Gamebox" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
 theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox"]
 layout_mode = 2
 
-[node name="GameStatsContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+[node name="GameStatsContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 
-[node name="game_stats_flow_container" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer"]
+[node name="game_stats_flow_container" type="HFlowContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 10
 
-[node name="CoinsContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
+[node name="CoinsContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
 
-[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="static text - coins" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
+[node name="static text - coins" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Coins: "
 
-[node name="coins_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
+[node name="coins_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "$_money"
 
-[node name="CoinsPerClickContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
+[node name="CoinsPerClickContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer"]
 layout_mode = 2
 
-[node name="static_text hit per click" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
+[node name="static_text hit per click" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
 layout_mode = 2
 text = "hit per click:"
 
-[node name="hit_per_click_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
+[node name="hit_per_click_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
 layout_mode = 2
 text = "$_hitPerClick"
 
-[node name="PassiveIncomeContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
+[node name="PassiveIncomeContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_hfwpy")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer"]
 layout_mode = 2
 
-[node name="static_text passive income" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
+[node name="static_text passive income" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
 layout_mode = 2
 text = "Passive income:"
 
-[node name="income_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
+[node name="income_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
 layout_mode = 2
 text = "$_income"
 
-[node name="EnemyContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+[node name="EnemyContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 100
@@ -216,31 +287,31 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 15
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_w85uy")
 
-[node name="enemy_click_to_hit_button" type="Button" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
+[node name="enemy_click_to_hit_button" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
 flat = true
 
-[node name="HealthBarContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+[node name="HealthBarContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
 layout_mode = 2
 
-[node name="enemy_health_bar" type="ProgressBar" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer"]
+[node name="enemy_health_bar" type="ProgressBar" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/background = SubResource("StyleBoxTexture_irjhv")
@@ -249,7 +320,7 @@ max_value = 10.0
 value = 10.0
 rounded = true
 
-[node name="TextureRect" type="TextureRect" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar"]
+[node name="TextureRect" type="TextureRect" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -259,43 +330,52 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_68d6t")
 
-[node name="PanelContainer3" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_qhl74")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3"]
 layout_mode = 2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_g1tky")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
+[node name="planet_level" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_t5fhe")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ItemList" type="ItemList" parent="MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer"]
+[node name="ItemList" type="ItemList" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/panel = SubResource("StyleBoxTexture_vxl2p")
 same_column_width = true
 
 [node name="possible menubutton" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1820, 95)
 scale = Vector2(2.63333, 2.63333)
 texture = ExtResource("12_tmh4o")
