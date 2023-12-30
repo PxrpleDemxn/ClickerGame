@@ -1,6 +1,5 @@
 using Godot;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 public partial class SaveService : ISaveService
@@ -11,12 +10,17 @@ public partial class SaveService : ISaveService
   IEnemyService _enemy = EnemyService.Instance;
   const string path = "res://test.json"; // path, change it later!!
   const string savePath = "res://save000.json"; // savePath, change it later!!
-
   const string enemySavePath = "res://enemies.json"; // enemySavePath, change it later!!
   public void SaveGame()
   {
-    // TODO
+    // TODO 
     // Implement save game
+  }
+
+  public void LoadGame()
+  {
+    // TODO 
+    // Implement load game
   }
 
   public void SaveUpgrades(List<Upgrade> upgrades)

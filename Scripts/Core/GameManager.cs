@@ -12,6 +12,11 @@ public partial class GameManager : Node
 	ProgressBar enemyHealthBar;
 	double enemyHealth = 10;
 
+	[Export]
+	private PackedScene _upgradeList;
+	[Export]
+	private ScrollContainer _upgradeScrlContainer;
+
 	private IUpgradeService _upgradeService = UpgradeService.Instance;
 	private ISaveService _saveService = new SaveService();
 	private IGameStatsService _gameStatsService = GameStatsService.Instance;
@@ -82,8 +87,6 @@ public partial class GameManager : Node
 	// Load components
 	private void LoadComponents()
 	{
-		PackedScene upgradeList = GD.Load<PackedScene>("res://scenes/dynamic/list_of_upgrade_buttons.tscn");
-		ScrollContainer upgradeScrlContainer = GetNode<ScrollContainer>("MainTest/MarginContainer/GameUIPanel/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer");
-		upgradeScrlContainer.AddChild(upgradeList.Instantiate());
+		_upgradeScrlContainer.AddChild(_upgradeList.Instantiate());
 	}
 }

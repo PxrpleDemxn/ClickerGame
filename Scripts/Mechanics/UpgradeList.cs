@@ -4,10 +4,10 @@ using System;
 public partial class UpgradeList : Node
 {
 	IUpgradeService _upgradeService = UpgradeService.Instance;
+	[Export]
+	private PackedScene _scene;
 	public override void _Ready()
 	{
-		// Get single upgrade scene
-		PackedScene _scene = GD.Load<PackedScene>("res://scenes/dynamic/singular_upgrade_container.tscn");
 		// Loop through all upgrades
 		foreach (Upgrade item in _upgradeService.GetUpgrades())
 		{

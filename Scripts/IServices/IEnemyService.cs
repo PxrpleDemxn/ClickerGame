@@ -2,12 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial interface IEnemyService{
+public partial interface IEnemyService
+{
 
-/// <summary>
-/// Sets the name of the enemy
-/// </summary>
-/// <param name="name">Name</param>
+    /// <summary>
+    /// Sets the name of the enemy
+    /// </summary>
+    /// <param name="name">Name</param>
     void SetName(string name);
     /// <summary>
     /// Sets the description of the enemy
@@ -35,10 +36,10 @@ public partial interface IEnemyService{
     /// <param name="currentHealth">Current health</param>
     void SetCurrentHealth(double currentHealth);
 
-/// <summary>
-/// Gets the name of the enemy
-/// </summary>
-/// <param name="name">Name</param>
+    /// <summary>
+    /// Gets the name of the enemy
+    /// </summary>
+    /// <param name="name">Name</param>
     string GetName();
     /// <summary>
     /// Gets the description of the enemy
@@ -66,24 +67,24 @@ public partial interface IEnemyService{
     /// <param name="currentHealth">Current health</param>
     double GetCurrentHealth();
 
-	/// <summary>
-	/// Sets all upgrades to list
-	/// </summary>
-	/// <param name="enemies">List of all enemy objects</param>
-	void SetEnemies(List<Enemy> enemies);
+    /// <summary>
+    /// Sets all upgrades to list
+    /// </summary>
+    /// <param name="enemies">List of all enemy objects</param>
+    void SetEnemies(List<Enemy> enemies);
 
-     /// <summary>
-	/// Gets all enemies in list
-	/// </summary>
-	/// <returns>List of all enemy objects</returns>
-	List<Enemy> GetEnemies();
+    /// <summary>
+    /// Gets all enemies in list
+    /// </summary>
+    /// <returns>List of all enemy objects</returns>
+    List<Enemy> GetEnemies();
 
     /// <summary>
 	/// Adds enemy to list
 	/// </summary>
 	/// <param name="enemy">Enemy</param>
 	void AddEnemy(Enemy enemy);
-    
+
     /// <summary>
     /// Gets enemy from list on index
     /// </summary>
@@ -106,6 +107,6 @@ public partial interface IEnemyService{
     /// <param name="currentHealth">Current Health</param>
     void CreateEnemy(string name, string desc, int level, double coinsEarned, double maxHealth);
 
-	
+
 
 }

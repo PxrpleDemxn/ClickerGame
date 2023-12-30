@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr80hg474o0tw"]
+[gd_scene load_steps=3 format=3 uid="uid://cr80hg474o0tw"]
 
 [ext_resource type="Script" path="res://Scripts/Mechanics/UpgradeList.cs" id="1_nrr62"]
+[ext_resource type="PackedScene" uid="uid://cajeu0qqhf4gx" path="res://scenes/dynamic/singular_upgrade_container.tscn" id="2_63oma"]
 
 [node name="listOfButtons" type="VBoxContainer"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_nrr62")
+_scene = ExtResource("2_63oma")

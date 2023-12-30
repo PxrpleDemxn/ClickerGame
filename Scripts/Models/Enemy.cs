@@ -1,3 +1,5 @@
+using Godot;
+
 public partial class Enemy
 {
 	/// <summary>
