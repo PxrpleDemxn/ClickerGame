@@ -106,7 +106,4 @@ public partial interface IEnemyService
     /// <param name="maxHealth">Max Health</param>
     /// <param name="currentHealth">Current Health</param>
     void CreateEnemy(string name, string desc, int level, double coinsEarned, double maxHealth);
-
-
-
 }

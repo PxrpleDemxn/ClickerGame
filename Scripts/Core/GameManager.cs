@@ -1,18 +1,16 @@
-using System.Collections.Generic;
 using Godot;
-using Newtonsoft.Json;
 
 public partial class GameManager : Node
 {
-	[Export]
-	Button clickToHitButton;
+	//[Export]
+	//Button clickToHitButton;
 	[Export]
 	Label coins, income, hitPerClick;
 	[Export]
 	ProgressBar enemyHealthBar;
-	[Export]
-	ItemList enemyList;
 	double enemyHealth = 10;
+	int currentLevel;
+	
 
 	[Export]
 	private PackedScene _upgradeList;
@@ -28,14 +26,10 @@ public partial class GameManager : Node
 
 		LoadSaves();
 		LoadComponents();
+		currentLevel = GetCurrentPlanetLevel();
 
-		_gameStatsService.SetHitsPerClick(1);
 
-		#endregion
 
-		for(int i=0;i<20;i++){
-			enemyList.AddItem("Enemy lvl" + i);
-		}
 
 		// changed labels to display data from _gameservice - coins and coinsperclick
 		coins.Text = "Coins: " + _gameStatsService.GetCoins().ToString();
@@ -43,11 +37,13 @@ public partial class GameManager : Node
 		hitPerClick.Text = "CPS: " + _gameStatsService.GetHitsPerClick() + "/pc";
 		//income.Text = "Passive income: " + _gameStatsService.GetIncome() + "/sec";
 
-		clickToHitButton.Pressed += enemyClickToHit_button_pressed;
+		//clickToHitButton.Pressed += enemyClickToHit_button_pressed;
+		#endregion
 	}
 
 	public override void _Process(double delta)
 	{
+
 	}
 
 	// Saving when app is closed
@@ -85,6 +81,8 @@ public partial class GameManager : Node
 			coins.Text = _gameStatsService.GetCoins().ToString();
 			enemyHealth = 10;
 			enemyHealthBar.Value = enemyHealth;
+
+
 		}
 
 
@@ -96,4 +94,18 @@ public partial class GameManager : Node
 	{
 		_upgradeScrlContainer.AddChild(_upgradeList.Instantiate());
 	}
+
+	private int GetCurrentPlanetLevel()
+	{
+		var planets = _gameStatsService.GetPlanets();
+
+
+		Planet planet = planets[_gameStatsService.GetRebirthLevel()];
+
+		int level = planet.Level;
+
+		GD.Print(level);
+		return level;
+	}
+
 }

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class GameStatsService : IGameStatsService
 {
@@ -63,11 +64,44 @@ public partial class GameStatsService : IGameStatsService
 		return _gameStats;
 	}
 
-	public void SetHitsPerClick(double hitsPerClick){
+	public void SetHitsPerClick(double hitsPerClick)
+	{
 		_gameStats.HitsPerClick = hitsPerClick;
 	}
 
-	public double GetHitsPerClick(){
+	public double GetHitsPerClick()
+	{
 		return _gameStats.HitsPerClick;
 	}
+
+	public void AddPlanet(Planet planet)
+	{
+		_gameStats.Planets.Add(planet);
+	}
+
+	public List<Planet> GetPlanets()
+	{
+		return _gameStats.Planets;
+	}
+
+	public void ClearPlanets()
+	{
+		_gameStats.Planets.Clear();
+	}
+
+	public void AddRebirthLevel()
+	{
+		_gameStats.RebirthLevel++;
+	}
+
+	public int GetRebirthLevel()
+	{
+		return _gameStats.RebirthLevel;
+	}
+
+    public Planet GetPlanet(int index)
+    {
+        return GetPlanets()[index];
+    }
+
 }

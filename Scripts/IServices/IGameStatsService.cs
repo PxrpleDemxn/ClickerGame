@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial interface IGameStatsService
 {
@@ -56,6 +57,36 @@ public partial interface IGameStatsService
 	/// </summary>
 	/// <param name="gameStats">Game Stats</param>
 	void SetGameStats(GameStats gameStats);
+
+	/// <summary>
+	/// Adds planet to list
+	/// </summary>
+	/// <param name="planet">Planet</param>
+	void AddPlanet(Planet planet);
+
+	/// <summary>
+	/// Gets all planets in current system (rebirth)
+	/// </summary>
+	/// <returns>Planets</returns>
+	List<Planet> GetPlanets();
+
+	Planet GetPlanet(int index);
+
+	/// <summary>
+	/// Clears planet list to reset planets after rebirth
+	/// </summary>
+	void ClearPlanets();
+
+	/// <summary>
+	/// Adds one rebirth level
+	/// </summary>
+	void AddRebirthLevel();
+
+	/// <summary>
+	/// Gets rebirth level
+	/// </summary>
+	/// <returns>Rebirth Level</returns>
+	int GetRebirthLevel();
 
 	/// <summary>
 	/// Gets GameStats

@@ -32,18 +32,14 @@ private List<Enemy> _enemyList;
     public void SetDescription(string desc){
         _enemy.Description = desc;
     }
-    public void SetLevel(int level){
-        _enemy.Level = level;
-    }
+
     public void SetCoinsEarned(double coinsEarned){
         _enemy.CoinsEarned = coinsEarned;
     }
     public void SetMaxHealth(double maxHealth){
         _enemy.MaxHealth = maxHealth;
     }
-    public void SetCurrentHealth(double currentHealth){
-        _enemy.CurrentHealth = currentHealth;
-    }
+
 
             //Getters
 
@@ -53,9 +49,7 @@ private List<Enemy> _enemyList;
     public string GetDescription(){
         return _enemy.Description;
     }
-    public int GetLevel(){
-        return _enemy.Level;
-    }
+
     public double GetCoinsEarned(){
         return _enemy.CoinsEarned;
     }
@@ -64,9 +58,7 @@ private List<Enemy> _enemyList;
         return _enemy.MaxHealth;
     }
 
-    public double GetCurrentHealth(){
-        return _enemy.CurrentHealth;
-    }
+
 
 
     public List<Enemy> GetEnemies()
@@ -98,10 +90,8 @@ private List<Enemy> _enemyList;
 		// Randomly set dummy variables
 		dummy.Name = "Dummy"+rnd.Next(0,1000);
 		dummy.Description = "Description";
-		dummy.Level = rnd.Next(0,100);
 		dummy.CoinsEarned = rnd.Next(1,100);
 		dummy.MaxHealth = rnd.Next(10,20);
-        dummy.CurrentHealth = GetMaxHealth();
 
 		// Add to list
 		AddEnemy(dummy);
@@ -109,29 +99,44 @@ private List<Enemy> _enemyList;
         GD.Print(
         "Dummy enemy created: " + dummy.Name + "\n" +
         "Desc: " + dummy.Description + "\n" +
-        "Level: " + dummy.Level + "\n" +
         "CoinsEarned: " + dummy.CoinsEarned + "\n" +
-        "Max Health: " + dummy.MaxHealth + "\n" +
-        "Current Health: " + dummy.CurrentHealth
+        "Max Health: " + dummy.MaxHealth + "\n"
         );
     }
 
 	public void CreateEnemy(string name, string desc, int level, double coinsEarned, double maxHealth)
 	{
-		// Create Upgrade class
+		// Create Enemy class
 		Enemy enemy = new();
 
 		// Set variables
 		enemy.Name = name;
 		enemy.Description = desc;
-		enemy.Level = level;
 		enemy.CoinsEarned = coinsEarned;
 		enemy.MaxHealth = maxHealth;
-        enemy.CurrentHealth = maxHealth;
 
 		// Add to list
 		AddEnemy(enemy);
 	}
 
+    public void SetLevel(int level)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetCurrentHealth(double currentHealth)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int GetLevel()
+    {
+        throw new NotImplementedException();
+    }
+
+    public double GetCurrentHealth()
+    {
+        throw new NotImplementedException();
+    }
 
 }

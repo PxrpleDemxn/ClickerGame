@@ -1,15 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5iqi7tppeour"]
+[gd_scene load_steps=25 format=3 uid="uid://c5iqi7tppeour"]
 
 [ext_resource type="Script" path="res://Scripts/Core/GameManager.cs" id="1_nnbaf"]
 [ext_resource type="Texture2D" uid="uid://d2mtm6wdu4q4w" path="res://assets/BG/Space Background.png" id="2_ave7i"]
 [ext_resource type="Texture2D" uid="uid://c585sug7hbl0t" path="res://assets/UI/MainPanel01.png" id="2_jfuoe"]
 [ext_resource type="Texture2D" uid="uid://bpwon5jhnum31" path="res://assets/UI/MainPanel02.png" id="3_48cws"]
 [ext_resource type="Texture2D" uid="uid://cxay8sp4p0wwm" path="res://assets/UI/Button16.png" id="4_7qk7y"]
-[ext_resource type="PackedScene" uid="uid://cr80hg474o0tw" path="res://Scenes/dynamic/list_of_upgrade_buttons.tscn" id="5_2pvdn"]
-[ext_resource type="Texture2D" uid="uid://bg0b54fi7lor1" path="res://assets/BG/parallax-space-big-planet.png" id="6_4r42t"]
+[ext_resource type="PackedScene" uid="uid://cr80hg474o0tw" path="res://scenes/dynamic/list_of_upgrade_buttons.tscn" id="5_2pvdn"]
 [ext_resource type="Texture2D" uid="uid://chd428dod2ruq" path="res://assets/UI/Button05.png" id="6_a83nu"]
 [ext_resource type="Texture2D" uid="uid://cmm7if527iull" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_Bar.png" id="8_8otn2"]
 [ext_resource type="Texture2D" uid="uid://dyff676yvyxkw" path="res://assets/Planets/2410639180.png" id="8_axxgd"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/EnemySystem.cs" id="8_qbaih"]
 [ext_resource type="Texture2D" uid="uid://uen3imtmbw57" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_ProgressBar.png" id="9_7cc0v"]
 [ext_resource type="Texture2D" uid="uid://c40bvf4c52aas" path="res://assets/Wenrexa Interface UI KIT #4/PNG/ProgressBar_05/BarV5_ProgressBarBorder.png" id="10_68d6t"]
 [ext_resource type="Texture2D" uid="uid://ud0nv3mcxf0v" path="res://assets/UI/SelectPanel03.png" id="12_7vew1"]
@@ -53,9 +53,6 @@ texture_margin_top = 25.0
 texture_margin_right = 25.0
 texture_margin_bottom = 25.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w85uy"]
-texture = ExtResource("6_4r42t")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irjhv"]
 texture = ExtResource("8_8otn2")
 
@@ -80,14 +77,15 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 modulate_color = Color(1, 1, 1, 0.639216)
 
-[node name="GameWindow" type="Node" node_paths=PackedStringArray("clickToHitButton", "coins", "income", "hitPerClick", "enemyHealthBar", "enemyList")]
+[node name="GameWindow" type="Node" node_paths=PackedStringArray("coins", "income", "hitPerClick", "enemyHealthBar", "_upgradeScrlContainer")]
 script = ExtResource("1_nnbaf")
-clickToHitButton = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/enemy_click_to_hit_button")
-coins = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/coins_label")
-income = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/income_label")
-hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/hit_per_click_label")
+coins = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer/static text - coins")
+income = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer/static_text passive income")
+hitPerClick = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer/static_text hit per click")
 enemyHealthBar = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/HealthBarContainer/enemy_health_bar")
-enemyList = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer3/VBoxContainer/ScrollContainer/ItemList")
+_upgradeList = ExtResource("5_2pvdn")
+_upgradeScrlContainer = NodePath("MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/UpgradesMenu/VBoxContainer/ScrollContainer")
+metadata/_edit_horizontal_guides_ = [-760.0]
 
 [node name="MainTest" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -243,10 +241,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Coins: "
 
-[node name="coins_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "$_money"
-
 [node name="CoinsPerClickContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -258,10 +252,6 @@ layout_mode = 2
 [node name="static_text hit per click" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
 layout_mode = 2
 text = "hit per click:"
-
-[node name="hit_per_click_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/CoinsPerClickContainer/VBoxContainer"]
-layout_mode = 2
-text = "$_hitPerClick"
 
 [node name="PassiveIncomeContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container"]
 layout_mode = 2
@@ -275,17 +265,18 @@ layout_mode = 2
 layout_mode = 2
 text = "Passive income:"
 
-[node name="income_label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/GameStatsContainer/game_stats_flow_container/PassiveIncomeContainer/VBoxContainer"]
-layout_mode = 2
-text = "$_income"
-
-[node name="EnemyContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer"]
+[node name="EnemyContainer" type="MarginContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer" node_paths=PackedStringArray("_panelContainer", "progressBar", "enemyList", "enemyCount")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 15
+script = ExtResource("8_qbaih")
+_panelContainer = NodePath("AspectRatioContainer/MarginContainer/PanelContainer")
+progressBar = NodePath("../HealthBarContainer/enemy_health_bar")
+enemyList = NodePath("../../../PanelContainer3/VBoxContainer/ScrollContainer/ItemList")
+enemyCount = NodePath("../../Label")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
 layout_mode = 2
@@ -300,9 +291,8 @@ theme_override_constants/margin_bottom = 50
 
 [node name="PanelContainer" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_w85uy")
 
-[node name="enemy_click_to_hit_button" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer"]
+[node name="enemy_click_to_hit_button" type="Button" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox/VBoxContainer/EnemyContainer/AspectRatioContainer/MarginContainer/PanelContainer"]
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -329,6 +319,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_68d6t")
+
+[node name="Label" type="Label" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer/Gamebox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "1"
 
 [node name="PanelContainer3" type="PanelContainer" parent="MainTest/MarginContainer/GameUIPanel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2

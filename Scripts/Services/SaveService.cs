@@ -67,7 +67,15 @@ public partial class SaveService : ISaveService
     // Checks if load file exists... if not it create new empty GameStats
     if (load == null)
     {
+
+
       _gameStats.SetGameStats(new GameStats());
+      _gameStats.AddPlanet(new Planet
+      {
+        Level = 1,
+        EnemyKills = 0
+      });
+
       return;
     }
 
@@ -79,7 +87,7 @@ public partial class SaveService : ISaveService
   {
     // Opens path and sets flag to write
     using var save = FileAccess.Open(enemySavePath, FileAccess.ModeFlags.Write);
-    
+
     // Using Newtonsoft.Json we serialize object to automatically convert it to json
     string json = JsonConvert.SerializeObject(_enemy.GetEnemies());
 
@@ -87,7 +95,8 @@ public partial class SaveService : ISaveService
 
   }
 
-  public void LoadEnemies(){
+  public void LoadEnemies()
+  {
     // Opens path and sets flag to read
     using var load = FileAccess.Open(enemySavePath, FileAccess.ModeFlags.Read);
     // Checks if load file exists... if not it create new empty List<Enemy>
